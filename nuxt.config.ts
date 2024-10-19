@@ -8,9 +8,14 @@ export default defineNuxtConfig({
   // firebase
   modules: ["nuxt-vuefire"],
   vuefire: {
-    auth: {
-      enabled: true,
+    emulators: {
+      auth: {
+        options: {
+          disableWarnings: true,
+        },
+      },
     },
+    auth: true,
     appCheck: {
       provider: "ReCaptchaV3",
       // site key, NOT secret key
