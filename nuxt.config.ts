@@ -1,7 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2024-04-03",
+  // having ssr allows us to use `nuxt generate` like for netlify
+  ssr: true,
   devtools: { enabled: true },
+  compatibilityDate: "2024-04-03",
   modules: ["nuxt-vuefire"],
   vuefire: {
     config: {
