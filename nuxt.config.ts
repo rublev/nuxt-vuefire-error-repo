@@ -16,6 +16,10 @@ export default defineNuxtConfig({
       // site key, NOT secret key
       key: process.env.FIREBASE_APP_CHECK_KEY,
       isTokenAutoRefreshEnabled: true,
+      // allows you to use a debug token in development
+      debug:
+        process.env.NODE_ENV !== "production" &&
+        process.env.NODE_ENV !== "staging",
     },
     config: {
       apiKey: process.env.FIREBASE_API_KEY,
