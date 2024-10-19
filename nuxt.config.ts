@@ -2,10 +2,21 @@
 export default defineNuxtConfig({
   // having ssr allows us to use `nuxt generate` like for netlify
   ssr: true,
+  // devtools + compat
   devtools: { enabled: true },
   compatibilityDate: "2024-04-03",
+  // firebase
   modules: ["nuxt-vuefire"],
   vuefire: {
+    auth: {
+      enabled: true,
+    },
+    appCheck: {
+      provider: "ReCaptchaV3",
+      // site key, NOT secret key
+      key: process.env.FIREBASE_APP_CHECK_KEY,
+      isTokenAutoRefreshEnabled: true,
+    },
     config: {
       apiKey: process.env.FIREBASE_API_KEY,
       authDomain: process.env.FIREBASE_AUTH_DOMAIN,
